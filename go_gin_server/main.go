@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-  r := gin.Default()
+  r := gin.New()
   r.POST("/api/v1/test", func(c *gin.Context) {
     c.JSON(http.StatusOK, gin.H{})
   })

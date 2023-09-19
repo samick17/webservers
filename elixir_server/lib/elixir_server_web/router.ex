@@ -20,6 +20,12 @@ defmodule ElixirServerWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api/v1", ElixirServerWeb do
+    pipe_through :browser
+
+    post "/test", APIController, :test
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", ElixirServerWeb do
   #   pipe_through :api
