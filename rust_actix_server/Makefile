@@ -1,4 +1,7 @@
 MAKEFLAGS += --silent
 
+build:
+	cargo build --release
+
 launch-release:
-	cargo run --release
+	./target/release/rust_actix_server
