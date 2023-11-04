@@ -21,7 +21,7 @@ defmodule ElixirServerWeb.Router do
   end
 
   scope "/api/v1", ElixirServerWeb do
-    pipe_through :browser
+    pipe_through :api
 
     post "/test", APIController, :test
   end

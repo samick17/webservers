@@ -25,3 +25,24 @@ load-test:
 	k6 run \
 		./testing/load-test.js > benchmark-result/${name}.log
 	sh ./kill_server.sh
+
+run-elixir:
+	k6 run \
+		./testing/load-test.js > benchmark-result/elixir_server.log
+
+run-rust-actix:
+	k6 run \
+		./testing/load-test.js > benchmark-result/rust_actix_server.log
+
+run-go-gin:
+	k6 run \
+		./testing/load-test.js > benchmark-result/go_gin_server.log
+
+run-node-express:
+	k6 run \
+		./testing/load-test.js > benchmark-result/node_express_server.log
+
+run-node-koa:
+	k6 run \
+		./testing/load-test.js > benchmark-result/node_koa_server.log
+
