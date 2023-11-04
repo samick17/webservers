@@ -1,6 +1,9 @@
 MAKEFLAGS += --silent
 ENV=$(shell cat .env)
 
+init:
+	env $(ENV) mix deps.get
+
 dev:
 	iex -S mix phx.server
 

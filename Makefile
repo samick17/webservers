@@ -26,9 +26,9 @@ load-test:
 		./testing/load-test.js > benchmark-result/${name}.log
 	sh ./kill_server.sh
 
-run-elixir:
+run-elixir-phoenix:
 	k6 run \
-		./testing/load-test.js > benchmark-result/elixir_server.log
+		./testing/load-test.js > benchmark-result/elixir_phoenix_server.log
 
 run-rust-actix:
 	k6 run \
@@ -45,4 +45,12 @@ run-node-express:
 run-node-koa:
 	k6 run \
 		./testing/load-test.js > benchmark-result/node_koa_server.log
+
+run-node-fastify:
+	k6 run \
+		./testing/load-test.js > benchmark-result/node_fastify_server.log
+
+run-python-flask:
+	k6 run \
+		./testing/load-test.js > benchmark-result/python_flask_server.log
 

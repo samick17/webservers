@@ -4,4 +4,4 @@ buid:
 	@true
 
 launch-release:
-	flask --app index run
+	sh ./start.sh
