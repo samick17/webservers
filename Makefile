@@ -14,6 +14,7 @@ all:
 	make load-test name=python_hug_server
 	make load-test name=rust_actix_server
 	make load-test name=rust_rocket_server
+	make load-test name=rust_axum_server
 
 run:
 	cd ${name} && \

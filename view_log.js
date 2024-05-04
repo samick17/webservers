@@ -27,6 +27,7 @@ const filePaths = [
   './benchmark-result/node_hono_server.log',
   './benchmark-result/python_flask_server.log',
   './benchmark-result/rust_actix_server.log',
+  './benchmark-result/rust_axum_server.log',
 ];
 console.log('| Language | Framework | HTTP Requests | Average count (/sec) |');
 console.log('|-----------|-----------|---------------|--------------------------|');
