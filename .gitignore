@@ -6,3 +6,4 @@ obj
 benchmark-result/*.json
 benchmark-result/*.log
 server
+__pycache__

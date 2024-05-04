@@ -1,6 +1,6 @@
 MAKEFLAGS += --silent
 
-buid:
+build:
 	@true
 
 launch-release:

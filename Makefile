@@ -1,22 +1,24 @@
 MAKEFLAGS += --silent
 
 all:
-	make load-test name=elixir_server
+	make load-test name=elixir_phoenix_server
 	make load-test name=go_gin_server
 	make load-test name=node_express_server
 	make load-test name=node_fastify_server
 	make load-test name=node_koa_server
-# 	make load-test name=python_dash_server
-# 	make load-test name=python_django_server
-# 	make load-test name=python_flask_server
-# 	make load-test name=python_hug_server
+	make load-test name=node_elysia_server
+	make load-test name=node_hono_server
+	make load-test name=python_dash_server
+	make load-test name=python_django_server
+	make load-test name=python_flask_server
+	make load-test name=python_hug_server
 	make load-test name=rust_actix_server
-# 	make load-test name=rust_rocket_server
+	make load-test name=rust_rocket_server
 
 run:
 	cd ${name} && \
-	make build && \
-	make launch-release &
+	make build
+	cd ${name} && make launch-release &
 
 load-test:
 	make run name=${name}
@@ -49,6 +51,14 @@ run-node-koa:
 run-node-fastify:
 	k6 run \
 		./testing/load-test.js > benchmark-result/node_fastify_server.log
+
+run-node-elysia:
+	k6 run \
+		./testing/load-test.js > benchmark-result/node_elysia_server.log
+
+run-node-hono:
+	k6 run \
+		./testing/load-test.js > benchmark-result/node_hono_server.log
 
 run-python-flask:
 	k6 run \

@@ -11,5 +11,4 @@ build:
 	MIX_ENV=prod mix release
 
 launch-release:
-	make build
 	env $(ENV) ./_build/prod/rel/elixir_server/bin/elixir_server start

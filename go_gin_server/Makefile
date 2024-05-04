@@ -8,4 +8,4 @@ build:
 
 launch-release:
 	make build
-	./server
+	GIN_MODE=release ./server

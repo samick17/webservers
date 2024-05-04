@@ -8,7 +8,7 @@ function parseK6Log(k6Log) {
 
   k6Log.split('\n').forEach((line) => {
     let [key, value] = line.split(':').map((entry) => entry.trim());
-    key = key.replace(/\./g, '');
+    key = key.replace(/\./g, '').trim();
     if (relevantProperties.includes(key)) {
       result[key] = value;
     }
@@ -23,6 +23,8 @@ const filePaths = [
   './benchmark-result/node_express_server.log',
   './benchmark-result/node_koa_server.log',
   './benchmark-result/node_fastify_server.log',
+  './benchmark-result/node_elysia_server.log',
+  './benchmark-result/node_hono_server.log',
   './benchmark-result/python_flask_server.log',
   './benchmark-result/rust_actix_server.log',
 ];
@@ -48,7 +50,7 @@ const stats = filePaths.map(filePath => {
   const names = path.basename(filePath).split('_');
   const lang = names[0];
   const framework = names[1];
-  const data = parsedData.http_reqs.split(' ');
+  const data = parsedData.http_reqs.split(' ').filter((text) => !!text);
   return {
     lang,
     framework,
