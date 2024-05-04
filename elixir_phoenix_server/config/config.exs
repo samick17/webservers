@@ -9,22 +9,11 @@ import Config
 
 # Configures the endpoint
 config :elixir_server, ElixirServerWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [view: ElixirServerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: ElixirServer.PubSub,
   live_view: [signing_salt: "NV9ouPcs"]
-
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :elixir_server, ElixirServer.Mailer, adapter: Swoosh.Adapters.Local
-
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,
