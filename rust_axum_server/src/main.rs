@@ -1,5 +1,5 @@
 use axum::{
-    routing::{get, post},
+    routing::{post},
     http::StatusCode,
     Json, Router,
 };
@@ -17,7 +17,7 @@ async fn main() {
 }
 
 async fn empty_json(
-    Json(payload): Json<CreateEmptyJson>,
+    Json(_payload): Json<CreateEmptyJson>,
 ) -> (StatusCode, Json<EmptyJson>) {
     let user = EmptyJson {};
 
@@ -28,7 +28,6 @@ async fn empty_json(
 struct CreateEmptyJson {
 }
 
-// the output to our `create_user` handler
 #[derive(Serialize)]
 struct EmptyJson {
 }

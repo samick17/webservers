@@ -12,6 +12,7 @@ async fn main() {
     let mut headers = HeaderMap::new();
     headers.insert("content-type", HeaderValue::from_static("application/json"));
     let hello = warp::path!("api" / "v1" / "test" / ..)
+        .and(warp::post())
         .map(|| {
             json!(EmptyJson{}).to_string()
         })
