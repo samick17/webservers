@@ -9,7 +9,6 @@ struct EmptyJson {
 
 #[tokio::main]
 async fn main() {
-    // GET /hello/warp => 200 OK with body "Hello, warp!"
     let mut headers = HeaderMap::new();
     headers.insert("content-type", HeaderValue::from_static("application/json"));
     let hello = warp::path!("api" / "v1" / "test" / ..)
